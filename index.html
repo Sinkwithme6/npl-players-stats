@@ -5,7 +5,29 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>NPL Player Statistics</title>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
-<style>
+<style> /* Container to help with centering */
+.image-container {
+    width: 100%;
+    display: flex;
+    justify-content: center; /* Centers horizontally */
+    align-items: center;     /* Centers vertically */
+    padding: 20px 0;
+}
+
+/* The magic for mobile + laptop */
+.responsive-img {
+    max-width: 90%;    /* Ensures it doesn't touch the screen edges on mobile */
+    height: auto;      /* Keeps the image from looking "stretched" */
+    border-radius: 12px; /* Soft edges look more modern/professional */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1); /* Subtle shadow for depth */
+}
+
+/* For larger laptop screens, we don't want the image to be TOO huge */
+@media (min-width: 1024px) {
+    .responsive-img {
+        max-width: 600px; 
+    }
+}
   :root {
     --bg: #080C12;
     --surface: #0E1520;
@@ -33,7 +55,7 @@
     font-family: 'DM Sans', sans-serif;
     min-height: 100vh;
     overflow-x: hidden;
-  }
+  } 
 
   /* ── BACKGROUND NOISE ── */
   body::before {
@@ -615,7 +637,10 @@ function renderPlayer(name) {
           </div>`;
         }).join('')}
       </div>
-    </div>
+    </div> 
+    <div class="image-container">
+    <img src="Player.avif" alt="NPL Players" class="responsive-img">
+</div>
 
     <!-- SEASON COMPARISON BATTING -->
     <div class="stats-section">
